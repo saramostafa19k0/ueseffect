@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
 function App() {
+  const [toggle, setToggle] = React.useState(false);
+
+  const handleClick = () => {
+    setToggle(!toggle);
+  }
+
+  React.useEffect(() => {
+    document.title = toggle ? 'Toggle is off' : 'Toggle is on';
+  },)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Toggle Button</h1>
+      <button onClick={handleClick}>
+        toggle message
+      </button>
+      <p>{toggle ? 'Toggle is off' : 'Toggle is on'}</p>
     </div>
   );
 }
